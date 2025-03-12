@@ -1,0 +1,13 @@
+RewriteEngine on 
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [NC,L]
+
+# Preusmeri /admin na /admin/login
+RewriteRule ^admin/?$ /admin/login [L]
+
+# Preusmeri čiste URL-ove za blog postove direktno na single.php
+RewriteRule ^([a-zA-Z0-9_-]+)$ single.php?slug=$1 [L]
+
+# Preusmeri /blog na blog.php
+RewriteRule ^blog/?$ blog.php [L]
